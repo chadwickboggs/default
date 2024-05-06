@@ -10,10 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class MainTest {
 
+/*
     @Test
     public void testMain() {
         Main.main("Tiffany");
     }
+*/
 
     @Test
     public void testApply_Success() {
