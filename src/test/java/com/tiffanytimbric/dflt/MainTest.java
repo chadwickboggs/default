@@ -1,14 +1,15 @@
 package com.tiffanytimbric.dflt;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 
-class MainTest {
+public final class MainTest {
 
 /*
     @Test
@@ -22,11 +23,12 @@ class MainTest {
         final ResultStatus resultStatus = new Main().apply(List.of("Tiffany"));
 
         assertNotNull(
-                resultStatus, "The result status was null."
+                "The result status was null.",
+                resultStatus
         );
         assertEquals(
-                ResultStatus.Success, resultStatus,
-                "The result status was non-success."
+                "The result status was non-success.",
+                ResultStatus.Success, resultStatus
         );
         assertEquals(
                 "Success", resultStatus.getMessage()
@@ -38,11 +40,12 @@ class MainTest {
         final ResultStatus resultStatus = new Main().apply(List.of(""));
 
         assertNotNull(
-                resultStatus, "The result status was null."
+                "The result status was null.",
+                resultStatus
         );
         assertEquals(
-                ResultStatus.Failure, resultStatus,
-                "The result status was non-success."
+                "The result status was non-success.",
+                ResultStatus.Failure, resultStatus
         );
         assertEquals(
                 "Failure: At least one argument must be provided.",
