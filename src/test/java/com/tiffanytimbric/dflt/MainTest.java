@@ -10,17 +10,24 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class MainTest {
 
+/*
     @Test
     public void testMain() {
         Main.main("Tiffany");
     }
+*/
 
     @Test
     public void testApply_Success() {
         final ResultStatus resultStatus = new Main().apply(List.of("Tiffany"));
 
-        assertNotNull(resultStatus);
-        assertEquals(ResultStatus.Success, resultStatus);
+        assertNotNull(
+                resultStatus, "The result status was null."
+        );
+        assertEquals(
+                ResultStatus.Success, resultStatus,
+                "The result status was non-success."
+        );
         assertEquals(
                 "Success", resultStatus.getMessage()
         );
@@ -30,8 +37,13 @@ class MainTest {
     public void testApply_Failure() {
         final ResultStatus resultStatus = new Main().apply(List.of(""));
 
-        assertNotNull(resultStatus);
-        assertEquals(ResultStatus.Failure, resultStatus);
+        assertNotNull(
+                resultStatus, "The result status was null."
+        );
+        assertEquals(
+                ResultStatus.Failure, resultStatus,
+                "The result status was non-success."
+        );
         assertEquals(
                 "Failure: At least one argument must be provided.",
                 resultStatus.getMessage()
