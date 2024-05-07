@@ -9,14 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 
-public final class MainTest {
-
-/*
-    @Test
-    public void testMain() {
-        Main.main("Tiffany");
-    }
-*/
+public final class HelloWorldFunctionTest {
 
     @Test
     public void testApply_Success() {
