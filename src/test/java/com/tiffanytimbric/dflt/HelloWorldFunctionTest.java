@@ -13,7 +13,7 @@ public final class HelloWorldFunctionTest {
 
     @Test
     public void testApply_Success() {
-        final ResultStatus resultStatus = new Main().apply(List.of("Tiffany"));
+        final ResultStatus resultStatus = new HelloWorldFunction().apply(List.of("Tiffany"));
 
         assertNotNull(
                 "The result status was null.",
@@ -30,7 +30,7 @@ public final class HelloWorldFunctionTest {
 
     @Test
     public void testApply_Failure() {
-        final ResultStatus resultStatus = new Main().apply(List.of(""));
+        final ResultStatus resultStatus = new HelloWorldFunction().apply(List.of(""));
 
         assertNotNull(
                 "The result status was null.",
