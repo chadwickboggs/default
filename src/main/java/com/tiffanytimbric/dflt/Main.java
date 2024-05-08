@@ -11,41 +11,32 @@ import java.util.Optional;
 import java.util.function.Function;
 
 
-public class Main implements Function<List<String>, ResultStatus> {
+public class Main {
+
+    private final HelloWorldFunction helloWorldFunction;
+
+    public Main() {
+        this(new HelloWorldFunction());
+    }
+
+    public Main(
+            @Nullable final HelloWorldFunction helloWorldFunction
+    ) {
+        this.helloWorldFunction = helloWorldFunction;
+    }
 
     public static void main(
             @Nullable final String... args
     ) {
-        final ResultStatus resultStatus = new Main().apply(
-                ArrayUtils.isEmpty(args) ? null : List.of(args)
-        );
+        final List<String> argsList = ArrayUtils.isEmpty(args) ? List.of() : List.of(args);
+
+        final ResultStatus resultStatus = new Main().helloWorldFunction.apply(argsList);
 
         if (resultStatus.ordinal() != 0) {
             System.err.println(resultStatus.getMessage());
         }
 
         System.exit(resultStatus.ordinal());
-    }
-
-    public ResultStatus apply(
-            @Nullable final List<String> args
-    ) {
-        if (CollectionUtils.isEmpty(args)) {
-            System.out.println("Hi.");
-
-            return ResultStatus.Success;
-        }
-
-        final Optional<String> firstCliArgOpt = LangUtil.getArgument(0, args);
-        if (firstCliArgOpt.isEmpty()) {
-
-            return ResultStatus.Failure
-                    .addMessage("At least one argument must be provided.");
-        }
-
-        System.out.printf("Hi, %s.%n", firstCliArgOpt.get());
-
-        return ResultStatus.Success;
     }
 
 }
